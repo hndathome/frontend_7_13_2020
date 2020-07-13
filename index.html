@@ -37,10 +37,6 @@
             padding: 8px;
             z-index: 0;
         }
-
-        .btn {
-            float: right;
-        }
     </style>
 </head>
 
@@ -51,37 +47,20 @@
             <h1>To Do List</h1>
             <div class="row" style="padding: 20px;">
                 <div class="col-md-8 offset-md-2 to-do-list">
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="enterTask" placeholder="Enter task">
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button" class="btn btn-primary" onclick="addItem();" title="add task"><i
-                                    class="fa fa-plus"></i> Task</button>
+                    <div class="row">
+                        <div class="col-12" id="to-do-col">
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-12" id="to-do-col">
-                            <!-- <div class="to-do-item">
-                                <i class="fa fa-fw fa-trash" style="color: red;" onclick="deleteTask(this);"
-                                    title="delete task"></i>
-                                <i class="fa fa-fw fa-square-o" onclick="markComplete(this);" title="mark complete"></i>
-                                <span>Hello World</span>
-                            </div>
-                            <div class="to-do-item">
-                                <i class="fa fa-fw fa-trash" style="color: red;" onclick="deleteTask(this);"
-                                    title="delete task"></i>
-                                <i class="fa fa-fw fa-square-o" onclick="markComplete(this);" title="mark complete"></i>
-                                <span>Goodbye</span>
-                            </div> -->
+                    <div class="form-group row">
+                        <div class="col-md-8" style="margin-bottom: 8px;">
+                            <input type="text" class="form-control" id="enterTask" placeholder="Enter task">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 col-md-4">
+                            <button type="button" class="btn btn-primary" onclick="addItem();" title="add task"><i
+                                    class="fa fa-plus"></i> Task</button>
                             <button type="button" class="btn btn-danger" onClick="clearAll();"
                                 title="delete all tasks"><i class="fa fa-trash"></i> All Tasks</button>
-
                         </div>
                     </div>
                 </div>
