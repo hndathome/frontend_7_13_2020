@@ -54,19 +54,15 @@
                     <div class="row">
                         <div class="col-12" id="to-do-col">
                             <div class="to-do-item">
-                                <a class="btn btn-danger" href="#" title="delete task" onclick="deleteTask(this);">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                                <a class="btn btn-secondary check-to-do-item" href="#" title="mark completed"
-                                    onclick="markComplete(this);">
-                                    <i class="fa fa-square-o"></i>
-                                </a>
+                                <i class="fa fa-fw fa-trash" style="color: red;" onclick="deleteTask(this);"
+                                    title="delete task"></i>
+                                <i class="fa fa-fw fa-square-o" onclick="markComplete(this);" title="mark complete"></i>
                                 <span>Hello World</span>
                             </div>
                             <div class="to-do-item">
-                                <a class="btn btn-danger" href="#" title="delete task" onclick="deleteTask(this);">
-                                    <i class="fa fa-trash"></i>
-                                </a>
+                                <i class="fa fa-fw fa-trash" style="color: red;" onclick="deleteTask(this);"
+                                    title="delete task"></i>
+                                <i class="fa fa-fw fa-square-o" onclick="markComplete(this);" title="mark complete"></i>
                                 <span>Goodbye</span>
                             </div>
                         </div>
@@ -99,25 +95,26 @@
             <script>
                 // Remove task from the list.
                 function deleteTask(e) {
+                    //"delete task" btn -> to-do-item -> to-do-col
                     e.parentNode.parentNode.removeChild(e.parentNode);
                 }
 
                 // Mark task complete
                 function markComplete(e) {
-                    e.classList.toggle("btn-secondary");
-                    e.classList.toggle("btn-success");
+                    e.classList.toggle("fa-square-o");
+                    e.classList.toggle("fa-check-square-o");
 
-                    if (e.classList.contains("btn-secondary")) {
-                        e.innerHTML = '<i class="fa fa-square-o"></i>'
+                    if (e.classList.contains("fa-square-o")) {
+                        e.style.color = "rgb(33, 37, 41)";
                         e.parentNode.querySelector('span').style.textDecoration = "none";
                     }
                     else {
-                        e.innerHTML = '<i class="fa fa-check-square-o"></i>'
+                        e.style.color = "green";
                         e.parentNode.querySelector('span').style.textDecoration = "line-through";
                     }
                 }
 
-                // Remove any tasks from the list.
+                // Remove all tasks from the list.
                 function clearAll() {
                     let list = document.getElementById("to-do-col");
                     list.innerHTML = null;
