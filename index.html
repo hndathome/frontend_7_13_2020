@@ -61,13 +61,13 @@
                                     onclick="markComplete(this);">
                                     <i class="fa fa-square-o"></i>
                                 </a>
-                                Hello World
+                                <span>Hello World</span>
                             </div>
                             <div class="to-do-item">
                                 <a class="btn btn-danger" href="#" title="delete task" onclick="deleteTask(this);">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                Goodbye
+                                <span>Goodbye</span>
                             </div>
                         </div>
                     </div>
@@ -109,9 +109,11 @@
 
                     if (e.classList.contains("btn-secondary")) {
                         e.innerHTML = '<i class="fa fa-square-o"></i>'
+                        e.parentNode.querySelector('span').style.textDecoration = "none";
                     }
                     else {
                         e.innerHTML = '<i class="fa fa-check-square-o"></i>'
+                        e.parentNode.querySelector('span').style.textDecoration = "line-through";
                     }
                 }
 
