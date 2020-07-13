@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .to-do-list {
+            background-color: #ebecf0;
+            border-radius: 3px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
+            position: relative;
+            white-space: normal;
+            padding: 20px;
+        }
+
+        .to-do-item {
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+            cursor: pointer;
+            display: block;
+            margin-bottom: 8px;
+            position: relative;
+            text-decoration: none;
+            padding: 8px;
+            z-index: 0;
+        }
+
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <form>
+            <h1>To Do List</h1>
+            <div class="row" style="padding: 20px;">
+                <div class="col-md-8 offset-md-2 to-do-list">
+                    <div class="row">
+                        <div class="col-12" id="to-do-col">
+                            <div class="to-do-item">
+                                <a class="btn btn-danger" href="#" title="delete task" onclick="deleteTask(this);">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a class="btn btn-secondary check-to-do-item" href="#" title="mark completed"
+                                    onclick="markComplete(this);">
+                                    <i class="fa fa-square-o"></i>
+                                </a>
+                                Hello World
+                            </div>
+                            <div class="to-do-item">
+                                <a class="btn btn-danger" href="#" title="delete task" onclick="deleteTask(this);">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                Goodbye
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="btn-toolbar" role="toolbar">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-primary" id="addItem" title="add task"><i
+                                            class="fa fa-plus"></i> Task</button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-danger" onClick="clearAll();"
+                                        title="delete all tasks"><i class="fa fa-trash"></i> All Tasks</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script>
+                // Remove task from the list.
+                function deleteTask(e) {
+                    e.parentNode.parentNode.removeChild(e.parentNode);
+                }
+
+                // Mark task complete
+                function markComplete(e) {
+                    e.classList.toggle("btn-secondary");
+                    e.classList.toggle("btn-success");
+
+                    if (e.classList.contains("btn-secondary")) {
+                        e.innerHTML = '<i class="fa fa-square-o"></i>'
+                    }
+                    else {
+                        e.innerHTML = '<i class="fa fa-check-square-o"></i>'
+                    }
+                }
+
+                // Remove any tasks from the list.
+                function clearAll() {
+                    let list = document.getElementById("to-do-col");
+                    list.innerHTML = null;
+                }
+            </script>
+</body>
+
+</html>
